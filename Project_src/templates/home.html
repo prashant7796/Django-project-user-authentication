@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Homepage {% endblock title %}
+{% block body %}
+
+<div class='container'>
+    <div class='jumbotron'>
+        <div class='text-center'>
+            <h2>Hi, {{request.user}} Welcome to Health Care </h2>
+            {% if user.is_authenticated %}
+                  <a class="btn btn-danger border border-warning rounded-pill" href="{% url 'logout' %}"class="btn btn-danger border border-warning rounded-pill">Logout</a>
+              {% else %}
+                <a class="btn btn-danger border border-warning rounded-pill" href="{% url 'login' %}"class="btn btn-danger border border-warning rounded-pill">Login</a>      
+            {% endif %}
+            
+        </div>
+    </div>
+</div>
+{% endblock body %}

@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block title %} SignUp page{% endblock title %}
+{% block body %}
+<div class="container h-100">
+    <div class="d-flex justify-content-center h-100">
+        <div class="text-center">
+            <div class="d-flex justify-content-center">
+                <h3> SignUp </h3>
+            </div>
+            <div class="jumbotron">
+                <form method="POST" action="">
+                    {% csrf_token %}
+                    <div class="input-group mb-3">
+
+                        {{form.account_type.label}}
+                        {{form.account_type}}
+                    </div>
+                    <div class="input-group mb-3">
+
+                        {{form.first_name.label}}
+                        {{form.first_name}}
+                    </div>
+                    <div class="input-group mb-3">
+                        {{form.last_name.label}}
+                        {{form.last_name}}
+                    </div>
+                    <div class="input-group mb-3">
+                        {{form.username.label}}
+                        {{form.username}}
+                    </div>
+                    <div class="input-group mb-3">
+                        {{form.profile_pic.label}}
+                        {{form.profile_pic}}
+                    </div>
+                    <div class="input-group mb-3">
+                        {{form.email.label}}
+                        {{form.email}}
+                    </div>
+                    <div class="input-group mb-3">
+                        {{form.password1.label}}
+                        {{form.password1}}
+                    </div>
+                    <div class="input-group mb-3">
+                        {{form.password2.label}}
+                        {{form.password2}}
+                    </div>
+                    <div class="input-group mb-3">
+                        {{form.address.label}}
+                        {{form.address}}
+                    </div>
+                    <input type="submit" value="SignUp">
+                    <p>already have an account? <a href="{% url 'login'%}">Login</a></p>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{%for message in messages%}
+    <h3> {{message}} </h3>
+{% endfor %}
+{% endblock body %}
